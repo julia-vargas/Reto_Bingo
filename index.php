@@ -12,6 +12,7 @@
 $bombo = array();
 $bolasSalidas = array();
 
+//CREAR JUGADORES
 $jugadores = array("J1", "J2", "J3", "J4");
 
     foreach ($jugadores as $jugador) {
