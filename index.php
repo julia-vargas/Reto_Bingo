@@ -20,36 +20,23 @@ $bombo[$i] = $i + 1;
 
 var_dump($bombo);
 
-// Hacemos el array anidado para el cartón con todos sus huequitos. Primero todo a null y despues posicion aleatoria se pone hueco vacio.
-for ($i=0; $i < 3; $i++)
+//CARTONNNNNNN
+// Hacemos el array anidado para el cartón con todos sus huequitos
+$carton = array();
+for ($i=0; $i<3; $i++)
 {
-$carton[$i] = array();
-
-for ($j=0; $j < 6; $j++)
-{
-$carton[$i][$j] = null;
-}
-
-$carton[$i][random_int(0, 5)] = 0;
-}
-
-$contador = 0;
-    for ($i=0; $i<3; $i++)
+    $carton[$i] = array();
+    for ($j=0; $j<6; $j++)
     {
-        for ($j=0; $j<6; $j++)
-        {
-            
-            if ($carton[$i][$j] === null)
-                {
-                    $carton[$i][$j] = random_int($contador, ($contador+10));
-                }
-            $contador = $contador + 10;
-        }
-    
+        $carton[$i][$j] = random_int($j * 10 + 1, $j * 10 + 10);
+        
     }
-    var_dump($carton);
+    $carton[$i][random_int(0, 5)] = 0;
+}
+
 
 var_dump($carton);
+
 
 // SACAR BOLAS BOMBO
 shuffle($bombo); // Remover el bombo.
