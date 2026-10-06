@@ -32,25 +32,52 @@ $jugadores = array("J1", "J2", "J3", "J4");
         }
     }
 
-var_dump($jugadores);
-var_dump($jugador);
 var_dump($carton);
 
 for ($i=0; $i < 60; $i++) {
 $bombo[$i] = $i + 1;
 }
 
-var_dump($bombo);
-
-
 // SACAR BOLAS BOMBO
 shuffle($bombo); // Remover el bombo.
-$bola = array_pop($bombo); // Sacar una bola y quitarla del array (Es la ultima posicion). El array se desplaza a lenght-1 cada vez que sale bola.
-array_push($bolasSalidas, $bola); // Se guarda la bola en el array de bolasSalidas para posibles comprobaciones futuras.
-echo "HA SALIDO LA BOLA: {$bola}<br>";
 
-var_dump($bombo);
-var_dump($bolasSalidas);
+$ganador = false;
+
+    // SACAR BOLAS
+while ($ganador == false && count($bombo) > 0) {
+
+    $bola = array_pop($bombo);
+    $bolasSalidas[] = $bola;
+
+    echo "HA SALIDO LA BOLA: $bola<br>";
+
+    for ($i = 0; $i < 3; $i++) {
+        for ($j = 0; $j < 6; $j++) {
+            if ($carton[$i][$j] != 0) {
+                if ($carton[$i][$j] == $bola) {
+                     $carton[$i][$j] = 0;
+                     echo "---------------ACERTADA LA BOLA {$bola}<br>";
+                }
+            }
+        }
+    }
+
+    // CONTAR ACIERTOS DEL CARTÓN
+    $aciertos = 0;
+    
+    for ($i = 0; $i < 3; $i++) {
+        for ($j = 0; $j < 6; $j++) {
+            if ($carton[$i][$j] == 0) {
+            $aciertos++;
+            }
+        }
+    }
+
+    if ($aciertos == 18) {
+        echo "¡BINGO!";
+        $ganador = true;
+    }
+}
 ?>
 </body>
 </html>
