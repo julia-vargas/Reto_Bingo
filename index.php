@@ -8,38 +8,63 @@
 </head>
 <body>
     <div class="nombres">
-        <h3>Oscar Bernases</h3>
-        <h3>Daniel Mutis</h3>
-        <h3>Julia Vargas</h3>
+        <h5>Oscar Bernases</h5>
+        <h5>Daniel Mutis</h5>
+        <h5>Julia Vargas</h5>
     </div>
 
     <?php
     
+        //Creacion de los jugadores
+        
+
         //Comienzo de variables auxiliares para bucles
         $fil = 0; //filas del bucle del carton
         $col = 0; //columnas del bucle de carton
 
-        $casilla = [1,2,3,0,5];
+        //variables auxiliares para los bucles
+        $x = 0;
+        $z = 0;
+
+        //jugadores y numero de cartones variables
+        $numJugadores = 0;
+        $numTablas = 0;
+
+        $jugadores = [];
+
+        $casilla = [1,2,3,0,5]; //prueba con array
         $num = 0;
 
-        echo"<table border='1' cellspading='5' cellspacing='0' border_cursor='center'>";
-        echo"<tr><th>.</th><th>.</th><th>.</th><th>.</th><th>.</th></tr>";
-        echo"<tr>";
+        echo"<table border='1' cellspadding='' cellspacing='1' border_cursor='center'>";
+
         //comienzo de las casillas de las cartillas de bingo
 
-        for ($fil = 0; $fil <3; $fil++)
+        for ($numJugadores=0; $numJugadores<4; $numJugadores++)
         {
-            echo "<tr>";
+            $tablero = [];
 
-            for ($col = 0; $x < 5; $x++) 
+            for ($numTablas= 0; $numTablas< 3; $numTablas++)
             {
-
-                echo "<td align='center'>",$casilla[$col],"</td>";
+                $tablero[$numTablas];
                 
+                //filas con su variable
+                for ($fil = 0; $fil <3; $fil++)
+                {
+                    echo "<tr>";
 
+                    //Aqui recorre la columnaS
+                    for ($col = 0; $col < 5; $col++) 
+                    {
+
+                        //Aqui tiene que ponerse el array para generarlo en la casilla
+                        echo "<td align='center'>",$casilla[$col],"</td>";
+                        
+
+                    }
+
+                    echo "</tr>";
+                }
             }
-
-            echo "</tr>";
         }
 
         echo"</table>";
