@@ -1,0 +1,14 @@
+.table{
+    margin-bottom: 15px;
+    box-sizing: border-box solid;
+}
+
+td{
+    padding: 10px 15px;
+    text-align: center;
+    border: ;
+}
+
+tbody{
+    border: 1 solid;
+}
