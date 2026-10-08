@@ -1,14 +1,13 @@
-.table{
+table{
     margin-bottom: 15px;
-    box-sizing: border-box solid;
+    border: 2px solid #000;
+
 }
 
 td{
-    padding: 10px 15px;
+    padding: 10px 15px solid #000;
     text-align: center;
-    border: 1 ;
-}
-
-tbody{
-    border: 1 solid;
+    border: 2px solid #000;
+    width: 22px;
+    height: 24px;
 }
