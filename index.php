@@ -1,75 +1,77 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bingo</title>
-    <link rel="stylesheet" href="\css\main.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="main.css">
+<title>Reto Bingo</title>
 </head>
 <body>
-    <div class="nombres">
-        <h5>Oscar Bernases</h5>
-        <h5>Daniel Mutis</h5>
-        <h5>Julia Vargas</h5>
-    </div>
+<h1>RETO BINGO</h1>
+<h4>Integrantes: Julia, Mutis y Óscar.</h4>
+<?php
+$bombo = array();
+$bolasSalidas = array();
 
-    <?php
-    
-        //Creacion de los jugadores
-        
+//CREAR JUGADORES
+$jugadores = array("J1", "J2", "J3", "J4");
 
-        //Comienzo de variables auxiliares para bucles
-        $fil = 0; //filas del bucle del carton
-        $col = 0; //columnas del bucle de carton
-
-        //variables auxiliares para los bucles
-        $x = 0;
-        $z = 0;
-
-        //jugadores y numero de cartones variables
-        $numJugadores = 0;
-        $numTablas = 0;
-
-        $jugadores = [];
-
-        $casilla = [1,2,3,0,5]; //prueba con array
-        $num = 0;
-
-        echo"<table border='1' cellspadding='11' cellspacing='1' border_cursor='center'>";
-
-        //comienzo de las casillas de las cartillas de bingo
-
-
-        for ($numJugadores=0; $numJugadores<4; $numJugadores++)
-        {
-             $jugadores[$numJugadores] = [];
-
-            for ($numTablas= 0; $numTablas< 3; $numTablas++)
+    foreach ($jugadores as $jugador) {
+        $jugador = array("C1", "C2", "C3");
+        foreach ($jugador as $carton) {
+            $carton = array();
+            $numUsado = array();
+            echo"<table>";
+            for ($i=0; $i<3; $i++)
             {
-                $tablero[$numTablas] = [];
-                
-                //filas con su variable
-                for ($fil = 0; $fil <3; $fil++)
+                $carton[$i] = array();
+                $colCero = random_int(0,5);
+                echo "<tr>";
+                for ($j=0; $j<6; $j++)
                 {
-                    echo "<tr>";
-
-                    //Aqui recorre la columnas
-                    for ($col = 0; $col < 5; $col++) 
+                    if ($j == $colCero)
                     {
-
-                        //Aqui tiene que ponerse el array para generarlo en la casilla
-                        echo "<td align='center'>",$tablero[],"</td>";
-                        
-
+                        $carton[$i][$j] = "0";
                     }
+                    else
+                    {
+                        do
+                        {
+                        $numaleatorio = random_int($j * 10 +1, $j * 10 + 10);
+                        } while (in_array($numaleatorio, $numUsado));
 
-                    echo "</tr>";
+                        $numUsado[] = $numaleatorio;
+                        $carton[$i][$j] = $numaleatorio;
+                    }
+                    echo "<td>",$carton[$i][$j],"</td>";
                 }
+                $carton[$i][random_int(0, 5)] = 0;
+                echo "</tr>";
             }
+            echo"</table>";
+            echo"<br>";
         }
+    }
 
-        echo"</table>";
-    ?>
-    
+var_dump($jugadores);
+var_dump($jugador);
+var_dump($carton);
+
+for ($i=0; $i < 60; $i++) {
+$bombo[$i] = $i + 1;
+}
+
+var_dump($bombo);
+
+
+// SACAR BOLAS BOMBO
+shuffle($bombo); // Remover el bombo.
+$bola = array_pop($bombo); // Sacar una bola y quitarla del array (Es la ultima posicion). El array se desplaza a lenght-1 cada vez que sale bola.
+array_push($bolasSalidas, $bola); // Se guarda la bola en el array de bolasSalidas para posibles comprobaciones futuras.
+echo "HA SALIDO LA BOLA: {$bola}<br>";
+
+var_dump($bombo);
+var_dump($bolasSalidas);
+?>
 </body>
 </html>
