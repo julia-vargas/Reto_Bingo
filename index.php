@@ -45,7 +45,6 @@ $jugadores = array("J1", "J2", "J3", "J4");
                     }
                     echo "<td>",$carton[$i][$j],"</td>";
                 }
-                $carton[$i][random_int(0, 5)] = 0;
                 echo "</tr>";
             }
             echo"</table>";
