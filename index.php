@@ -3,16 +3,30 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="stylesheet" href="main.css">
 <title>Reto Bingo</title>
 </head>
 <body>
+<style>
+    table{
+    margin-bottom: 15px;
+    border: 2px solid #000;
+
+}
+
+td{
+    padding: 10px 15px solid #000;
+    text-align: center;
+    border: 2px solid #000;
+    width: 22px;
+    height: 24px;
+}
+</style>
 <h1>RETO BINGO</h1>
 <h4>Integrantes: Julia, Mutis y Óscar.</h4>
 <?php
 
 //CREAR JUGADORES
-$jugador = array("C1", "C2");
+$jugador = array("C1", "C2", "C3");
 $mis_cartones = array(); //lo creamos fuera para que no se pierda dentro del for (se va guardando aquí)
 
 foreach ($jugador as $nombre_carton) { 
@@ -99,7 +113,7 @@ foreach ($mis_cartones as $id_carton => &$cartones) // el & para poder modificar
     }
 
     if ($aciertos == 18) {
-        echo "¡BINGO PARA J1 CON EL CARTÓN {$id_carton}!";
+        echo "¡BINGO PARA J1 CON EL CARTÓN {$id_carton}! <br>";
         $ganador = true;
     }
     }
