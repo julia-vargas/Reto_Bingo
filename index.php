@@ -31,7 +31,7 @@ $jugadores = array("J1", "J2", "J3", "J4");
                 {
                     if ($j == $colCero)
                     {
-                        $carton[$i][$j] = "0";
+                        $carton[$i][$j] = 0;
                     }
                     else
                     {
