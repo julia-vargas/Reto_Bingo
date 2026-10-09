@@ -43,7 +43,6 @@ foreach ($jugador as $nombre_carton) {
             }
             echo "<td>",$carton[$i][$j],"</td>";
         }
-        $carton[$i][random_int(0, 5)] = 0;
         echo "</tr>";
     }
     echo"</table>";
@@ -56,7 +55,7 @@ foreach ($jugador as $nombre_carton) {
 $bombo = array();
 $bolasSalidas = array();
 
-for ($i=0; $i < 60; $i++) {
+for ($i=0; $i< 60; $i++) {
 $bombo[$i] = $i + 1;
 }
 
